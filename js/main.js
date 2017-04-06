@@ -40,3 +40,18 @@ function getAllMovies(searchText) {
             console.log("There is an error");
         });
 }
+/*
+ * When movie is clicked on, the movie takes in the imdbID and passes
+ * the API data to movie.html via local session storage.
+*/
+function movieSelected(id) {
+    sessionStorage.setItem('movieId', id);
+    window.location = 'movie.html';
+    return false; 
+}
+
+
+
+function getMovie() {
+
+}
