@@ -13,7 +13,7 @@ $(document).ready(() => {
 
 /*
  * Uses the value of searchText to retrieve movies from
- * the OMDB API.
+ * the OMDB API usng Axios.
  * param: {string} SearchText - input text in #searchForm.
  */
 function getAllMovies(searchText) {
@@ -30,7 +30,7 @@ function getAllMovies(searchText) {
                         <h5>${movie.Title}</h5>
                         <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Info</a>
                       </div>
-                    </div
+                    </div>
                 `;
             });
 
