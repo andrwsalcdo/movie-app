@@ -18,7 +18,7 @@ $(document).ready(() => {
  * @param: {string} SearchText - input text in #searchForm.
  */
 function getAllMovies(searchText) {
-      axios.get('http://www.omdbapi.com/?s=' + searchText)
+      axios.get('https://www.omdbapi.com/?s=' + searchText)
         .then((response) => {
             console.log(response);
             let movies = response.data.Search; //array of movie data
@@ -60,7 +60,7 @@ function movieSelected(id) {
 function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
 
-    axios.get('http://www.omdbapi.com/?i=' + movieId)
+    axios.get('https://www.omdbapi.com/?i=' + movieId)
       .then((response) => {
           console.log(response);
           let movie = response.data;
