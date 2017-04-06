@@ -17,5 +17,26 @@ $(document).ready(() => {
  * param: {string} SearchText - input text in #searchForm.
  */
 function getAllMovies(searchText) {
-      console.log(searchText);
+      axios.get('http://www.omdbapi.com/?s=' + searchText)
+        .then((response) => {
+            console.log(response);
+            let movies = response.data.Search; //array of movie data
+            let output = '';
+            $.each(movies, (index, movie) => {
+                output += `
+                    <div class="col-md-3">
+                      <div class="well text-center">
+                        <img src="${movie.Poster}">
+                        <h5>${movie.Title}</h5>
+                        <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Info</a>
+                      </div>
+                    </div
+                `;
+            });
+
+            $('#movies').html(output);
+        })
+        .catch((error) => {
+            console.log("There is an error");
+        });
 }
